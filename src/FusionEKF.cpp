@@ -125,18 +125,11 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 	 *  Prediction
 	 ****************************************************************************/
 
-	 /**
-	  TODO:
-		* Update the state transition matrix F according to the new elapsed time.
-		 - Time is measured in seconds.
-		* Update the process noise covariance matrix.
-		* Use noise_ax = 9 and noise_ay = 9 for your Q matrix.
-	  */
+	
 	double dt = (measurement_pack.timestamp_ - previous_timestamp_) / 1000000.0;	//dt - expressed in seconds
 	
 	
-	//cout << "dt = " << measurement_pack.timestamp_ - previous_timestamp_ << " " << dt << endl;
-	//cin >> dt;
+	
 	previous_timestamp_ = measurement_pack.timestamp_;
 	VectorXd z;
 
@@ -161,11 +154,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 	 *  Update
 	 ****************************************************************************/
 
-	 /**
-	  TODO:
-		* Use the sensor type to perform the update step.
-		* Update the state and covariance matrices.
-	  */
+	
 	switch (measurement_pack.sensor_type_) {
 	case MeasurementPackage::RADAR:
 		z = VectorXd(3);
